@@ -1,38 +1,42 @@
+/* App.css */
 .App {
-  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Basic reset or your own reset can go here */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar */
+.navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #222;
+  padding: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar__logo {
+  color: #fff;
+  margin: 0;
+  margin-right: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar__links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Simple Layout */
+.home, .about, .projects, .contact {
+  padding: 2rem;
+}
+
+.home h2, .about h2, .projects h2, .contact h2 {
+  margin-top: 0;
 }

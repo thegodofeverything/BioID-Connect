@@ -1,0 +1,115 @@
+/* src/components/Navbar.css */
+
+/* Basic navbar layout */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #222;
+    padding: 1rem 2rem;  /* Extra horizontal padding for breathing room */
+    color: #fff;
+    position: relative;  /* So .navbar__links can position absolutely on mobile */
+    z-index: 10;         /* Ensure it stays on top if you have other content */
+  }
+  
+  /* Logo */
+  .navbar__logo {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* The nav links (desktop view) */
+  .navbar__links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    transition: max-height 0.3s ease-out;
+    margin: 0; /* reset default list margin */
+    padding: 0; /* reset default list padding */
+  }
+  
+  .navbar__links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;  /* add click/tap area */
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .navbar__links li a:hover {
+    color: #aaa; /* subtle hover effect on links */
+  }
+  
+  /* Hamburger toggle initially hidden on desktop */
+  .navbar__toggle {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0.25rem; /* just to have a slightly bigger click area */
+  }
+  
+  /* The 3 bars in the hamburger */
+  .bar {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* --- Animate the hamburger into an 'X' when open --- */
+  .navbar__toggle.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .navbar__toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar__toggle.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  /* --- Media query for Mobile --- */
+  @media (max-width: 768px) {
+    /* Hide nav links by default */
+    .navbar__links {
+      position: absolute;
+      top: 64px; /* just below the navbar */
+      right: 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgb(0, 0, 0); /* slightly transparent black */
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+  
+    /* Show the toggle button on mobile */
+    .navbar__toggle {
+      display: flex;
+    }
+  
+    /* When the nav is open */
+    .navbar__links.open {
+      max-height: 300px; /* or large enough to fit all links */
+    }
+  
+    /* Style each link block on mobile */
+    .navbar__links li {
+      width: 100%;
+      text-align: center;
+      border-top: 1px solid #000000;
+    }
+  
+    .navbar__links li a {
+      display: block;
+      padding: 1rem 0;
+      width: 100%;
+    }
+  }
+  
